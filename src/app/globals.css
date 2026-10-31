@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --bg-warm: #FAF9F6;
+  --surface-card: #FFFFFF;
+  --emerald-primary: #14532D;
+  --emerald-deep: #0E3B1F;
+  --emerald-soft: #DCFCE7;
+  --gold-accent: #C5A46D;
+  --gold-soft: #FBF6EC;
+  --text-charcoal: #1F2937;
+  --text-muted: #4B5563;
+  --border-warm: #E5E2DC;
+}
+
+html {
+  font-size: 16px;
+  background-color: var(--bg-warm);
+  color: var(--text-charcoal);
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+html[data-font-scale="large"] {
+  font-size: 18px;
+}
+
+html[data-font-scale="xlarge"] {
+  font-size: 20px;
+}
+
+body {
+  font-family: var(--font-anek-bangla), system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-warm);
+  color: var(--text-charcoal);
+  line-height: 1.65;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* Crisp tabular alignment for English numerals everywhere */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide native number input spinners */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Accessible high-visibility focus ring for elderly & keyboard navigation */
+*:focus-visible {
+  outline: 3px solid #14532D;
+  outline-offset: 2px;
+}
+
+@keyframes gentleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-gentle-in {
+  animation: gentleFadeIn 0.25s ease-out forwards;
+}

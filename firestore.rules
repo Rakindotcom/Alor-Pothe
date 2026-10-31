@@ -1,0 +1,27 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public read-only access for real-time family synchronization (onSnapshot).
+    // ALL writes are strictly blocked from browsers and handled exclusively
+    // through secure Next.js Server API routes using Firebase Admin SDK.
+    match /family_members/{memberId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /zikr_submissions/{submissionId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    // Administrator audit logs and internal records are completely private (server-only).
+    match /admin_audit_logs/{logId} {
+      allow read, write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
