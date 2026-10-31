@@ -25,7 +25,7 @@
   11. `Israt Jahan`
   12. `Sanjida Islam`
 - **Real-Time Synchronization**:
-  - Powered by **Cloud Firestore (`onSnapshot`)** (`asia-south1`). When any family member adds zikr on their smartphone, every other phone viewing the page sees the updated member total, collective family total, leaderboard rankings, and recent activity automatically without refreshing.
+  - Powered by **Cloud Firestore (`onSnapshot`)** (`asia-south1`). When any family member adds zikr on their smartphone, every other phone viewing the page sees the updated member total, collective family total, and leaderboard rankings automatically without refreshing.
 - **Atomic Transactions & Idempotent Submissions**:
   - Direct browser writes to Firestore are completely disabled (`allow write: if false` in [`firestore.rules`](./firestore.rules)).
   - All writes go through Next.js server endpoints using the **Firebase Admin SDK** and atomic `runTransaction` calls.
